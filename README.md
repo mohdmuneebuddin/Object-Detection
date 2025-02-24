@@ -10,20 +10,20 @@ model = YOLO("yolov8n.pt")
 # Initialize webcam (default camera)
 cap = cv2.VideoCapture(0)
 
-while cap.isOpened():
+    while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break
 
- results = model(frame)
+     results = model(frame)
 
- # Plot bounding boxes on the frame
- bounding_boxes = results[0].plot()
+     # Plot bounding boxes on the frame
+     bounding_boxes = results[0].plot()
 
- # Display the frame
- cv2.imshow("YOLOv8 Default camera Object Detection", bounding_boxes)
+     # Display the frame
+     cv2.imshow("YOLOv8 Default camera Object Detection", bounding_boxes)
 
- if cv2.waitKey(1) & 0xFF == ord("q"):  # Press 'q' to exit
+     if cv2.waitKey(1) & 0xFF == ord("q"):  # Press 'q' to exit
         break
 
 cap.release()
